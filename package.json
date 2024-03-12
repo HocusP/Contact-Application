@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "oidc-react": "^3.2.2"
+  }
+}
