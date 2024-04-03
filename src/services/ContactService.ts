@@ -1,4 +1,4 @@
-import { AuthContextProps, useAuth } from "oidc-react"
+import { AuthContextProps, } from "oidc-react"
 
 type Props = {
     body?: {};

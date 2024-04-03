@@ -2,9 +2,13 @@ import { useAuth } from "oidc-react"
 import { ContactService } from "../services/ContactService"
 import { useState } from "react"
 
-export default function DeleteContact({ id }) {
+interface DeleteContactProps {
+    id: number; // Specify the type of 'id' here
+   }
+
+export default function DeleteContact({ id }: DeleteContactProps) {
     const auth = useAuth()
-    const [data] = useState<TContact[]>([])
+    const [] = useState<TContact[]>([])
 
     const deleteItem = (id: number) => {
         const _auth = auth;
@@ -18,7 +22,7 @@ export default function DeleteContact({ id }) {
     }
 
     return (
-                <button onClick={() => deleteItem(id)}>
+                <button onClick={() => deleteItem( id )}>
                     Delete #{id}
                 </button>
 

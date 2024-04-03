@@ -6,7 +6,7 @@ interface Props {
     endpoint?: string
 }
 
-export default function EndpointDump({ endpoint = "api/biz/contacts?expand=info&select=info.name,role, ID" }: Props) {
+export default function EndpointDump({}: Props) {
     const auth = useAuth();
     if (!auth?.userData) return <>Not logged in!</>
 
