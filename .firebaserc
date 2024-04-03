@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "test-d97e7"
-  }
+    "default": "test-d97e7",
+    "hocus": "test-d97e7"
+  },
+  "targets": {},
+  "etags": {}
 }
