@@ -20,6 +20,8 @@ function App() {
 
   return (
       <AuthProvider {...oidcConfig}>
+
+    <title> Contact List </title>
         
     <h1> contact list </h1>
 

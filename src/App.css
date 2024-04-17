@@ -1,6 +1,21 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+
+  background-color: grey;
+}
+
+body{
+  text-align: left;
+  background-color: white;
+
+}
+
+.Contact-row {
+
+  display: flex;
+  justify-content: space-between; /* Adjust as needed */
+  align-items: center;
+  flex-direction: row-reverse;
+
 }

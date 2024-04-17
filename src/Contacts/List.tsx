@@ -15,30 +15,26 @@ export default function List() {
         })
     }, [auth])
     return <>
-
-        Show a list of users
+        
         {data?.length && <>
-            <pre>{JSON.stringify(data)}</pre>
-            {data.map(contact =>
-                <React.Fragment key={contact.ID}>
-                    <div>
-                        ID: {contact?.ID }
-                    </div>
-                    <div>
-                        name: {contact?.Info?.Name }
-                    </div>
-                    <div>  
-                        role: {contact?.Role}
-                    </div>
-                    <DeleteContact id={contact?.ID}></DeleteContact>
-                </React.Fragment>
-                
-               
+    {data.map(contact =>
+        <React.Fragment key={contact.ID}>
+            <div className="Contact-row">
+                <div>
+                    ID: {contact?.ID}
+                </div>
+                <div>
+                    name: {contact?.Info?.Name}
+                </div>
+                <div>  
+                    role: {contact?.Role}
+                </div>
+                <DeleteContact id={contact?.ID}></DeleteContact>
+                </div>
+        </React.Fragment>
+    )}
+</>}
 
-                )}
-            </>
-            
-        }
         <hr />
         <AddContact />
     </>

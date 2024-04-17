@@ -25,6 +25,5 @@ export default function DeleteContact({ id }: DeleteContactProps) {
                 <button onClick={() => deleteItem( id )}>
                     Delete #{id}
                 </button>
-
-    );
+);
 }
