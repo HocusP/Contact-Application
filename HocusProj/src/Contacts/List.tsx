@@ -21,7 +21,7 @@ export default function List() {
         {data?.length && <>
             <pre>{JSON.stringify(data)}</pre>
             {data.map(contact =>
-                <React.Fragment key={contact.ID}>
+                <div className="ContactCSS" key={contact.ID}>
                     <div>
                         ID: {contact?.ID }
                     </div>
@@ -33,7 +33,7 @@ export default function List() {
                     </div>
                     <DeleteContact id={contact?.ID}></DeleteContact>
 
-                </React.Fragment>
+                </div>
                 
                 )}
             </>
