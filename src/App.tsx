@@ -10,7 +10,7 @@ const oidcConfig = {
     console.log(user);
     window.location.hash = '';
   },
-  authority: 'https://test-login.unimicro.no',
+  authority: import.meta.env.VITE_OIDC_AUTHORITY,
   clientId: '9a0ec019-afeb-42c6-8c6b-b569e6531069',
   responseType: 'code',
   redirectUri: 'http://localhost:5173',
@@ -28,16 +28,21 @@ function App() {
 }, [search])
 
   return (
-      <AuthProvider {...oidcConfig}>
+    <AuthProvider {...oidcConfig}>
 
-    <title> Contact List </title>
-        
-    <h1> contact list </h1>
+      <div className='contacts-container'>
 
-      <ContactList />
+        <h1>
+          Contacts
+          <input className='Searchbar' type="text" placeholder="Search user:" value={search} onChange={(n) => setSearch(n.target.value)} />
+        </h1>
 
 
-      </AuthProvider>
+        <ContactList />
+
+
+      </div>
+    </AuthProvider>
   )
 
 }

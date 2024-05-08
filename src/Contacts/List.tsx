@@ -3,39 +3,38 @@ import { ContactService } from "../services/ContactService"
 import React, { useEffect, useState } from "react"
 import DeleteContact from "./Delete"
 import AddContact from "./Add"
+import useContactsStore from '../stores/Contacts';
 
 export default function List() {
     const auth = useAuth()
-    const [data, setData] = useState<TContact[]>([])
+    const data = useContactsStore((state) => state.filteredContacts);
+    const load = useContactsStore((state) => state.load);
 
     useEffect(() => {
         const _auth = auth;
-        ContactService.use(_auth).get().then(res => {
-            setData(res)
-        })
+        load(_auth)
     }, [auth])
-    return <>
-        
-        {data?.length && <>
-    {data.map(contact =>
-        <React.Fragment key={contact.ID}>
-            <div className="Contact-row">
-                <div>
-                    ID: {contact?.ID}
-                </div>
-                <div>
-                    name: {contact?.Info?.Name}
-                </div>
-                <div>  
-                    role: {contact?.Role}
-                </div>
-                <DeleteContact id={contact?.ID}></DeleteContact>
-                </div>
-        </React.Fragment>
-    )}
-</>}
+    return <div className="Contact-rows">
 
-        <hr />
+        {data?.length &&
+            data.map(contact =>
+                <div className="Contact-row" key={contact.ID}>
+                    <div>
+                        <h2>
+
+                            {contact?.Info?.Name}
+                        </h2>
+                        <p>
+
+                            {contact?.Role}
+                        </p>
+                    </div>
+
+                    <DeleteContact id={contact?.ID}></DeleteContact>
+                </div>
+            )
+        || null}
+
         <AddContact />
-    </>
+    </div>
 }
