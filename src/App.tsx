@@ -1,6 +1,8 @@
 import './App.css'
 import { AuthProvider } from 'oidc-react';
 import ContactList from './Contacts/List';
+import { useState, useEffect } from "react";
+import useContactsStore from './stores/Contacts';
 
 const oidcConfig = {
   onSignIn: async (user: any) => {
