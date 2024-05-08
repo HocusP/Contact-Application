@@ -18,6 +18,13 @@ const oidcConfig = {
 
 function App() {
 
+  const [search, setSearch] = useState("")
+  const searchFn = useContactsStore(state => state.search)
+
+  useEffect(() => {
+    searchFn(search)
+}, [search])
+
   return (
       <AuthProvider {...oidcConfig}>
 
